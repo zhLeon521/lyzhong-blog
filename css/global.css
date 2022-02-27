@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+    @apply hidden;
+}
+
+.task-list-item {
+    @apply list-none;
+}
+
+.footnotes {
+    @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+}
+
+.csl-entry {
+    @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: "JetBrains Mono", monospace;
+}
+
+::selection {
+    background: #ec0000;
+    color: #fefefe;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444444;
+    transition: 0.25s;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: 0 0;
+}
+
+/* https://seek-oss.github.io/capsize/ */
+.capsize::before {
+    content: "";
+    margin-bottom: -0.098em;
+    display: table;
+}
+
+.capsize::after {
+    content: "";
+    margin-top: -0.219em;
+    display: table;
+}
+
+.skip-nav {
+    @apply absolute -left-1/4 -top-8 -translate-y-12 transform px-4 py-3 transition-transform duration-200 focus:top-4 focus:translate-y-3;
+}
+
+#skip {
+    scroll-margin-top: 1.125rem;
+}
+
+/* post image */
+div[nextjs-image="true"] {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* release */
+#releases .release {
+    display: grid;
+    grid-template-areas:
+        "title date"
+        "body body";
+}
+
+#releases .title {
+    grid-area: title;
+    font-size: 2rem;
+    color: rgb(118, 117, 117);
+}
+
+#releases .date {
+    grid-area: date;
+    text-align: right;
+    color: rgb(118, 117, 117);
+    align-self: center;
+}
+
+#releases .body {
+    grid-area: body;
+    color: #eee;
+}
+
+.custom-image-container {
+    width: 100%;
+    position: relative;
+}
+.custom-image-container > span {
+    position: unset !important;
+}
+.custom-image-container .custom-image {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+    border-radius: 12px;
+}
+
+/* remark hint */
+p.hint {
+    position: relative;
+    margin: 0 0 20px;
+    padding: 15px 15px 15px 3em;
+    border-radius: 3px;
+    border: initial;
+    border-left: 5px solid #eee;
+    background-color: #f9f9f9;
+    color: #4c4948;
+}
+
+p.hint::before {
+    display: inline-block;
+    font-weight: 600;
+    font-style: normal;
+    font-variant: normal;
+    font-family: "Font Awesome 5 Free";
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    top: calc(50% - 0.95em);
+    left: 0.8em;
+    font-size: larger;
+}
+
+p.hint.warn {
+    background-color: #fdf8ea;
+    border-left-color: #f0ad4e;
+}
+
+p.hint.warn::before {
+    content: "\f06a";
+    color: #f0ad4e;
+}
+
+p.hint.error {
+    background: #fcf1f2;
+    border-left-color: #d9534f;
+}
+
+p.hint.error::before {
+    content: "\f056";
+    color: #d9534f;
+}
+
+p.hint.tip {
+    background: #eef7fa;
+    border-left-color: #428bca;
+}
+
+p.hint.tip::before {
+    content: "\f05a";
+    color: #428bca;
+}
+
+/* heading anchor */
+.prose .anchor {
+    @apply invisible absolute;
+
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: calc(768px + 1em);
+    cursor: pointer;
+}
+
+.anchor:hover {
+    @apply visible no-underline;
+}
+
+.prose a {
+    @apply transition-all;
+}
+
+.prose .anchor:after {
+    @apply text-gray-300 dark:text-gray-700;
+    content: "#";
+}
+
+.prose *:hover > .anchor {
+    @apply visible no-underline;
+}
